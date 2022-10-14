@@ -1,14 +1,14 @@
 package application;
 
-import boardgame.Board;
+import chess.ChessMath;
 
 public class Principal {
 
 	public static void main(String[] args) {
 
-		Board board = new Board(5, 8);
+		ChessMath chessMath = new ChessMath();
 		
-		System.out.println(board);
+		UI.printBoard(chessMath.getPieces());
 	}	
 
 }

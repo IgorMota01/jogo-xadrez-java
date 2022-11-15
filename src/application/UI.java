@@ -48,13 +48,16 @@ public class UI {
 		}
 	}
 	
-	public static void printMath(ChessMath chessMath, List<ChessPiece> captured) {
-		printBoard(chessMath.getPieces());
+	public static void printMath(ChessMath chessMatch, List<ChessPiece> captured) {
+		printBoard(chessMatch.getPieces());
 		System.out.println();
 		printCapturedPieces(captured);
 		System.out.println();
-		System.out.println("Turn: " + chessMath.getTurn());
-		System.out.println("Aguardando jogador: " + chessMath.getCurrentPlayer());
+		System.out.println("Turn: " + chessMatch.getTurn());
+		System.out.println("Aguardando jogador: " + chessMatch.getCurrentPlayer());
+		if (chessMatch.getCheck()) {
+			System.out.println("CHECK !");
+		}
 	}
 
 	public static void printBoard(ChessPiece[][] pieces) {
@@ -72,7 +75,7 @@ public class UI {
 		for (int i = 0; i < pieces.length; i++) {
 			System.out.print((8 - i) + " ");
 			for (int j = 0; j < pieces.length; j++) {
-				printPiece(pieces[i][j], possibleMoves[i][j]);
+				printPiece(pieces[i][j], false);
 			}
 			System.out.println();
 		}

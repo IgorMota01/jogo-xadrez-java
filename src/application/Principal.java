@@ -18,10 +18,10 @@ public class Principal {
 		ChessMath chessMath = new ChessMath();
 		List<ChessPiece> captured = new ArrayList<>();
 		
-		while(true) {
-			//try {
+		while(!chessMath.getCheckMate()) {
+			try {
 				UI.clearScreen();
-				UI.printMath(chessMath, captured);
+				UI.printMatch(chessMath, captured);
 				System.out.println();
 				System.out.print("Source: ");
 				ChessPosition source = UI.readChessPosition(sc);
@@ -39,14 +39,16 @@ public class Principal {
 				if (captured != null) {
 					captured.add(capturedPiece);
 				}
-			/*} catch (ChessException e) {
+			} catch (ChessException e) {
 				System.out.println(e.getMessage());
 				sc.nextLine();
 			} catch (InputMismatchException e) {
 				System.out.println(e.getMessage());
 				sc.nextLine();
-			}*/
+			}
 		}
+		UI.clearScreen();
+		UI.printMatch(chessMath, captured);
 	}
 
 }

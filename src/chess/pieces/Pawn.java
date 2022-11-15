@@ -2,12 +2,13 @@ package chess.pieces;
 
 import boardgame.Board;
 import boardgame.Position;
+import chess.ChessMath;
 import chess.ChessPiece;
 import chess.Color;
 
 public class Pawn extends ChessPiece {
 
-	public Pawn(Board board, Color color) {
+	public Pawn(Board board, Color color, ChessMath chessMath) {
 		super(board, color);
 
 	}
